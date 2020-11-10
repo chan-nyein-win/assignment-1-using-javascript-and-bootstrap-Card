@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/B6DDA201-35FD-824E-8F4D-6BB8FBC2EEA1/main.js" charset="UTF-8"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+             <div class="row" id="row"></div>
+          </div>
+          <div class="col-md-4">
+            <img src="" id="showImage" height="250px">
+          </div>
+        </div>
+      </div>
+      <script> 
+        function Student(name,age,img){
+          this.name = name;
+          this.age = age;
+          this.image = img;
+        }
+        var stu1 = new Student('Picture 1',1,'./images/cat1.jpg');
+        var stu2 = new Student('Picture 2',2,'./images/cat2.jpg');
+        var stu3 = new Student('Picture 3',3,'./images/cat3.jpg');
+        var stu4 = new Student('Picture 1',23,'./images/cat4.jpg');
+        var stu5 = new Student('Picture 2',2,'./images/cat5.jpg');
+        var stu6 = new Student('Picture 3',3,'./images/cat6.jpg');
+        var studentList = [stu1,stu2,stu3,stu4,stu5,stu6];
+        // var studentList = [stu1,stu2,stu3];
+
+        var card = "";
+        for( i = 0; i < studentList.length; i++){
+          card += '<div class="col-md-4">\
+            <div class="card">\
+              <img src="' + studentList[i].image +'" style="height:200px;" onclick="profile(this)">\
+              <div class="card-body">\
+                <h5 id="name">' + studentList[i].name + '</h5>\
+                <p id="age">Age:' + studentList[i].age + 'year</p>\
+              </div>\
+            </div>\
+          </div>';
+        }
+        document.getElementById("row").innerHTML = card;
+        function profile(ele){
+           document.getElementById("showImage").src = ele.src;
+        }
+      </script>
+	</body>
+</html>
